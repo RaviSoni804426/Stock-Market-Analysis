@@ -118,6 +118,21 @@ def get_simulation_results():
     return engine.recorder.get_summary()
 
 # Mount frontend build static directory if running in host/prod mode
-static_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "static")
-if os.path.exists(static_dir):
+# Try multiple possible locations to find the built dashboard folder on dev and production
+possible_dirs = [
+    # Production Docker structure: /app/static relative to /app/app/main.py
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "static"),
+    # Local Development structure: root/static relative to root/backend/app/main.py
+    os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "static"),
+    # Absolute container fallback
+    "/app/static"
+]
+
+static_dir = None
+for d in possible_dirs:
+    if os.path.exists(d) and os.path.isdir(d):
+        static_dir = d
+        break
+
+if static_dir:
     app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
