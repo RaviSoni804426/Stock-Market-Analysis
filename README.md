@@ -1,3 +1,13 @@
+---
+title: AegisMarket
+emoji: 🛡️
+colorFrom: indigo
+colorTo: cyan
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🛡️ AegisMarket: Autonomous Financial Agent Stress-Testing & Simulation Platform
 
 AegisMarket is an enterprise-grade, full-stack multi-agent financial simulation framework. It models a synthetic capital market populated by autonomous, LLM-powered traders with diverse risk profiles and behavioral personas. It allows quantitative developers, financial institutions, and policy researchers to stress-test market liquidity, evaluate regulatory shifts, and simulate macroeconomic shocks in a sandbox environment.
