@@ -1,13 +1,14 @@
 class PromptBlock:
-    def __init__(self, name, content):
+    def __init__(self, name, content, refname=None, **kwargs):
         self.name = name
+        self.refname = refname
         self.content = content.strip()
 
     def render(self):
         return f"## {self.name}\n{self.content}"
 
 class PromptVariable:
-    def __init__(self, refname, name, content):
+    def __init__(self, refname, name, content, **kwargs):
         self.refname = refname
         self.name = name
         self.content = content.strip()
