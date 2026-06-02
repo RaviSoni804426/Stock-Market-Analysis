@@ -135,4 +135,7 @@ for d in possible_dirs:
         break
 
 if static_dir:
+    print(f"SUCCESS: Mounting static files from path -> {static_dir}")
     app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
+else:
+    print("WARNING: Static directory could not be located in any potential paths!")
