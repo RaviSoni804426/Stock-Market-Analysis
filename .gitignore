@@ -1,0 +1,22 @@
+# Python files
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+.env.local
+
+# IDEs
+.idea/
+.vscode/
+
+# Static and built files
+node_modules/
+dist/
+
+# AegisMarket specific ignore
+res/*.xlsx
+res/*.json
+powershell.bat

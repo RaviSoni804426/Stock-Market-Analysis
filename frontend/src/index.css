@@ -1,0 +1,158 @@
+/* Modern Global Stylesheet for AegisMarket */
+
+:root {
+  --bg-main: #0B0F19;
+  --bg-card: rgba(18, 27, 45, 0.7);
+  --bg-card-hover: rgba(27, 42, 74, 0.85);
+  --border-color: rgba(99, 102, 241, 0.15);
+  --border-glow: rgba(99, 102, 241, 0.4);
+  
+  --color-primary: #6366F1; /* Neon Indigo */
+  --color-success: #10B981; /* Glowing Emerald */
+  --color-warning: #F59E0B; /* Golden Amber */
+  --color-danger: #EF4444;  /* Glowing Crimson */
+  --color-info: #06B6D4;    /* Electric Cyan */
+  
+  --text-main: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-light: #F8FAFC;
+  
+  --font-family-body: 'Inter', sans-serif;
+  --font-family-title: 'Outfit', sans-serif;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-body);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-title);
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Glassmorphism utility card */
+.aegis-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.aegis-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+/* Interactive Elements */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #4F46E5 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  transition: var(--transition-smooth);
+  font-family: var(--font-family-title);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 4px 25px rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  padding: 11px 22px;
+  font-weight: 500;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--color-primary);
+  color: var(--text-light);
+}
+
+/* Layout Utilities */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  padding: 24px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.glow-text-emerald {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+.glow-text-indigo {
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+/* Micro-animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating-icon {
+  animation: float 3s ease-in-out infinite;
+}
